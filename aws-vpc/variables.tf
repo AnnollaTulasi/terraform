@@ -26,3 +26,19 @@ variable "public_subnet_cidrs" {
     error_message = "Please provide 2 valid public cidrs"
   }
 }
+
+variable "private_subnet_cidrs" {
+  type= list
+  validation {
+    condition = length(var.private_subnet_cidrs) == 2
+    error_message = "Please provide 2 valid private cidrs"
+  }
+}
+
+variable "database_subnet_cidrs" {
+  type= list
+  validation {
+    condition = length(var.database_subnet_cidrs) == 2
+    error_message = "Please provide 2 valid database cidrs"
+  }
+}
