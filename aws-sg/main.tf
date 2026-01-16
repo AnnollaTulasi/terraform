@@ -1,4 +1,4 @@
-resource "aws_security_group" "allow_tls" {
+resource "aws_security_group" "mysql" {
   name        = local.resource_name
   description = var.sg_description
   vpc_id      = var.vpc_id
