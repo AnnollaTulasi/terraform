@@ -42,3 +42,7 @@ variable "database_subnet_cidrs" {
     error_message = "Please provide 2 valid database cidrs"
   }
 }
+
+variable "is_peering_required" {
+  default = false
+}
