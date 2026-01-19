@@ -1,5 +1,5 @@
 variable "project_name" {
-  default = "expense"
+  default = "expense-tracker"
 }
 variable "environment" {
   default = "dev"

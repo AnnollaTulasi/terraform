@@ -1,20 +1,20 @@
 variable "project_name" {
-    default = "expense-tracker" 
+  default = "expense-tracker"
 }
 variable "environment" {
-    default = "dev" 
+  default = "dev"
 }
 variable "vpc_cidr" {
-    default = "10.0.0.0/16"
+  default = "10.0.0.0/16"
 }
 variable "common_tags" {
-    type = map
-    default = {
-        Owner       = "tulasi"
-        Project     = "expense-tracker"
-        Environment = "dev"
-        Terraform = "true"
-    }
+  type = map(any)
+  default = {
+    Owner       = "tulasi"
+    Project     = "expense-tracker"
+    Environment = "dev"
+    Terraform   = "true"
+  }
 }
 
 variable "public_subnet_cidrs" {

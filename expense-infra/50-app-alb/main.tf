@@ -1,11 +1,11 @@
 module "alb" {
-  source = "terraform-aws-modules/alb/aws"
-  internal = true 
-  name    = "${var.project_name}-${var.environment}-alb"
-  vpc_id  = data.aws_ssm_parameter.vpc_id.value
-  subnets = local.public_subnet_ids
+  source                = "terraform-aws-modules/alb/aws"
+  internal              = true
+  name                  = "${var.project_name}-${var.environment}-alb"
+  vpc_id                = data.aws_ssm_parameter.vpc_id.value
+  subnets               = local.private_subnet_ids
   create_security_group = false
-  security_groups = [local.app_alb_sg_id]
+  security_groups       = [local.app_alb_sg_id]
   tags = merge(
     var.common_tags,
     {
@@ -19,12 +19,12 @@ resource "aws_lb_listener" "http" {
   port              = "80"
   protocol          = "HTTP"
 
-default_action {
+  default_action {
     type = "fixed-response"
 
     fixed_response {
-      content_type = "text/plain"
-      message_body = "<h1>Welcome to the Application Load Balancer</h1>"
+      content_type = "text/html"
+      message_body = "<h1>I am backend ALB</h1>"
       status_code  = "200"
     }
   }

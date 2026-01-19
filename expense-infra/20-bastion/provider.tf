@@ -7,14 +7,14 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "vpc-tf-remote-state"
-    key    = "bastion" # you should have unique keys with in the bucket, same key should not be used in other repos or tf projects
-    region = "us-east-1"
+    bucket         = "vpc-tf-remote-state"
+    key            = "bastion" # you should have unique keys with in the bucket, same key should not be used in other repos or tf projects
+    region         = "us-east-1"
     dynamodb_table = "state-locking"
   }
 }
 
 provider "aws" {
   # Configuration options
-    region = "us-east-1"
+  region = "us-east-1"
 }

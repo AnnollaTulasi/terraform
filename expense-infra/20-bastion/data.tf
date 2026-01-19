@@ -11,11 +11,11 @@ data "aws_ami" "joindevops" {
     values = ["hvm"]
   }
   filter {
-    name = "root-device-type"
+    name   = "root-device-type"
     values = ["ebs"]
   }
 
-  owners = ["442426883321"] # Amazon
+  owners = ["973714476881"] # Amazon
 }
 
 data "aws_ssm_parameter" "bastion_sg_id" {

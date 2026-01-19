@@ -2,10 +2,10 @@ variable "sg_name" {
   default= "mysql-sg"
 }
 variable "project_name" {
-  default = "Expense"
+  default = "expense-tracker"
 }
 variable "environment" {
-  default = "Dev"
+  default = "dev"
 }
 variable "sg_description" {
   default = "Security group for MySQL database"
