@@ -4,6 +4,7 @@ module "alb" {
   name                  = "${var.project_name}-${var.environment}-alb"
   vpc_id                = data.aws_ssm_parameter.vpc_id.value
   subnets               = local.private_subnet_ids
+  enable_deletion_protection = false
   create_security_group = false
   security_groups       = [local.app_alb_sg_id]
   tags = merge(
@@ -27,5 +28,17 @@ resource "aws_lb_listener" "http" {
       message_body = "<h1>I am backend ALB</h1>"
       status_code  = "200"
     }
+  }
+}
+
+resource "aws_route53_record" "app_alb" {
+  zone_id = var.zone_id
+  name    = var.domain_name
+  type    = "A"
+
+  alias {
+    name                   = module.alb.dns_name
+    zone_id                = module.alb.zone_id
+    evaluate_target_health = true
   }
 }

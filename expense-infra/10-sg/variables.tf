@@ -17,3 +17,4 @@ variable "common_tags" {
         Environment = "Dev"
     }
 }
+

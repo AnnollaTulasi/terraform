@@ -11,3 +11,9 @@ variable "common_tags" {
     environment = "dev"
   }
 }
+variable "zone_id" {
+  default = "Z123456ABCDEFG"
+}
+variable "domain_name" {
+  default = "app.expense.example.com"
+}
