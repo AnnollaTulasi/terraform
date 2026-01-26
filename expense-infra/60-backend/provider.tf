@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket         = "vpc-tf-remote-state"
-    key            = "module_development_sg" # you should have unique keys with in the bucket, same key should not be used in other repos or tf projects
+    key            = "bastion" # you should have unique keys with in the bucket, same key should not be used in other repos or tf projects
     region         = "us-east-1"
     dynamodb_table = "state-locking"
   }

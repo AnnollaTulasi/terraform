@@ -1,7 +1,7 @@
 resource "aws_key_pair" "openvpn_key" {
   key_name   = "${var.project_name}-${var.environment}-openvpn-key"
   public_key = file("C:\\Users\\tulas\\.ssh\\openvpn_key.pub")
-  
+
 }
 resource "aws_instance" "vpn" {
   ami                    = data.aws_ami.openvpn.id
